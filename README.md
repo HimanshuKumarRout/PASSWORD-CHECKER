@@ -171,6 +171,16 @@ Contributions are welcome!
 
 ---
 
+
+## 👨‍💻 Author
+
+**Himanshu Kumar Rout**
+
+* GitHub: [https://github.com/HimanshuKumarRout](https://github.com/HimanshuKumarRout)
+* Email: [himanshurout136@gmail.com](mailto:himanshurout136@gmail.com)
+
+---
+
 ## 📝 License
 
 Add your preferred license (MIT recommended).
