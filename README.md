@@ -1,84 +1,103 @@
-## Password Strength Checker
+---
 
-A small Python command‑line tool to **estimate password strength** and provide **clear, actionable feedback**.  
-It uses lightweight heuristics (no heavy dependencies) to score passwords from 0–100 and classify them as **Weak**, **Medium**, **Strong**, or **Very Strong**.
+<div align="center">
+  <h1>🔐 Password Strength Checker</h1>
+  <p>
+    <strong>A lightweight Python CLI tool to evaluate password strength with actionable feedback.</strong>
+  </p>
+  <p>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/CLI-Tool-black?style=for-the-badge" alt="CLI Tool" />
+    <img src="https://img.shields.io/badge/No%20Dependencies-✔️-brightgreen?style=for-the-badge" alt="No Dependencies" />
+    <img src="https://img.shields.io/badge/Security-Focused-red?style=for-the-badge" alt="Security Focused" />
+  </p>
+</div>
+
+<br />
+
+## 🌟 Overview
+
+**Password Strength Checker** is a simple yet effective command-line tool built in Python to **analyze password strength** and provide **clear, actionable suggestions** for improvement.
+
+Designed with a focus on **security, privacy, and usability**, it runs entirely locally—ensuring that your passwords are never exposed or transmitted over the internet.
+
+Whether you're a developer enforcing password policies or a user checking password safety, this tool provides quick and meaningful insights.
 
 ---
 
-### Features
+## 🚀 Key Features
 
-- **Secure input**: Prompts for your password without echoing it to the screen.
-- **Numeric score**: Strength score from 0–100.
-- **Human‑readable label**: Weak / Medium / Strong / Very Strong.
-- **Actionable feedback**: Suggestions to improve your password.
-- **CLI friendly**: Optional `--min-score` flag for scripts or CI checks.
-- **No external services**: Fully local; no password data is sent anywhere.
-
----
-
-### Project Structure
-
-- `main.py` – Entrypoint for the CLI application.
-- `password/cli.py` – Command‑line parsing, input handling, and output.
-- `password/scorer.py` – Password strength heuristic and scoring logic.
-- `password/__init__.py` – Public helpers and exports.
+* 🔒 **Secure Input** – Hidden password entry using CLI (no screen echo)
+* 📊 **Strength Scoring** – Numeric score from **0–100**
+* 🏷️ **Readable Labels** – Weak / Medium / Strong / Very Strong
+* 💡 **Actionable Feedback** – Suggestions to improve password quality
+* ⚙️ **Script-Friendly** – Supports `--min-score` for automation & CI
+* 🚫 **No External Dependencies** – Fully offline and lightweight
 
 ---
 
-### Requirements
+## 📁 Project Structure
 
-- **Python 3.x** (3.8+ recommended)
-- No third‑party dependencies required.
-
----
-
-### Installation
-
-Clone or download this repository, then navigate into the project folder:
-
-```bash
-cd "PASSWORD CHECHER"
+```text
+PASSWORD-CHECKER/
+├── main.py                # CLI entry point
+├── password/
+│   ├── __init__.py       # Package exports
+│   ├── cli.py            # CLI handling & output
+│   └── scorer.py         # Core password scoring logic
+└── README.md             # Documentation
 ```
 
-(Use quotes because the directory name contains a space.)
+---
 
-You can run the script directly with your system Python; no extra install step is strictly required.  
-Optionally, create and activate a virtual environment:
+## ⚙️ Requirements
+
+* **Python 3.8+**
+* No additional libraries required
+
+---
+
+## 🛠️ Installation
+
+Clone or download the repository:
+
+```bash
+git clone https://github.com/your-username/password-checker.git
+cd "PASSWORD CHECKER"
+```
+
+(Optional) Create a virtual environment:
 
 ```bash
 python -m venv .venv
-.\.venv\Scripts\activate  # on Windows PowerShell
+.\.venv\Scripts\activate   # Windows
 ```
 
 ---
 
-### Usage
+## ▶️ Usage
 
-You can either **pass a password as an argument** or **enter it interactively**.
-
-#### 1. Pass password as an argument
+### 1. Pass password as argument
 
 ```bash
 python main.py "YourPasswordHere"
 ```
 
-#### 2. Interactive (hidden input)
+### 2. Interactive mode (recommended)
 
 ```bash
 python main.py
 ```
 
-You’ll be prompted:
+Prompt:
 
 ```text
 Enter password (input hidden):
 ```
 
-Type your password (it will not be shown) and press Enter.
-
 ---
 
-### Example Output
+## 📌 Example Output
 
 ```text
 Score: 72/100
@@ -90,55 +109,79 @@ Feedback:
 
 ---
 
-### Using `--min-score` (for scripts/CI)
+## ⚡ Using `--min-score` (Automation / CI)
 
-You can enforce a **minimum required strength** and use the exit code to fail a script or pipeline:
+Enforce minimum password strength:
 
 ```bash
 python main.py "MyPassword123" --min-score 80
 ```
 
-Exit codes:
+### Exit Codes
 
-- `0` – Password meets or exceeds the `--min-score` (or no `--min-score` provided).
-- `2` – Password score is below the requested `--min-score`.
+* `0` → Meets required strength
+* `2` → Below minimum score
 
-This is useful for:
+Perfect for:
 
-- Enforcing password strength rules in internal tooling.
-- Quick checks in automated scripts.
-
----
-
-### How It Works (Overview)
-
-The core logic in `password/scorer.py`:
-
-- Checks **length** and **character variety** (lowercase, uppercase, digits, symbols).
-- Estimates **entropy‑like strength** based on the effective character pool.
-- Applies **penalties** for:
-  - Very common passwords.
-  - Simple sequences like `abcd` or `1234`.
-  - Repeated characters (e.g. `aaaaaa`).
-- Produces a `PasswordStrength` object with:
-  - `score` (0–100),
-  - `label` (Weak / Medium / Strong / Very Strong),
-  - `feedback` (list of tips),
-  - `details` (extra diagnostic info).
+* CI/CD pipelines
+* Internal validation scripts
+* Security checks
 
 ---
 
-### Security Notes & Limitations
+## 🧠 How It Works
 
-- **Do not** treat this as a replacement for a professional password auditing tool.
-- The scoring is **heuristic**, not a formal cryptographic analysis.
-- For real‑world authentication systems:
-  - Always use a **slow, salted password hash** such as `bcrypt`, `scrypt`, or `argon2`.
-  - Consider integrating a well‑maintained password strength library or service.
-- Never store or log real passwords used with this tool.
+The scoring system in `scorer.py` evaluates:
+
+* 📏 **Length of password**
+* 🔤 **Character diversity** (uppercase, lowercase, digits, symbols)
+* 🔢 **Entropy-like estimation**
+* ⚠️ **Penalties for weak patterns**:
+
+  * Common passwords
+  * Sequential patterns (`1234`, `abcd`)
+  * Repeated characters (`aaaaaa`)
+
+### Output Includes:
+
+* `score` → Numeric value (0–100)
+* `label` → Strength category
+* `feedback` → Improvement tips
+* `details` → Diagnostic insights
 
 ---
 
-### License
+## ⚠️ Security Notes
 
-Add your chosen license here (e.g. MIT, Apache‑2.0, etc.).
+* ❌ Not a replacement for professional security auditing tools
+* 🔐 Use proper hashing algorithms in real systems:
+
+  * `bcrypt`
+  * `scrypt`
+  * `argon2`
+* 🚫 Never store or log real passwords
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a new branch (`feature/your-feature`)
+3. Commit your changes
+4. Push to your branch
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+Add your preferred license (MIT recommended).
+
+---
+
+<p align="center">Built with 🔐 for better password security.</p>
+
+---
