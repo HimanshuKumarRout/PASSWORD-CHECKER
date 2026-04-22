@@ -57,7 +57,7 @@ PASSWORD-CHECKER/
 Clone or download the repository:
 
 ```bash
-git clone https://github.com/your-username/password-checker.git
+git clone https://github.com/HimanshuKumarRout/password-checker.git
 cd "PASSWORD CHECKER"
 ```
 
