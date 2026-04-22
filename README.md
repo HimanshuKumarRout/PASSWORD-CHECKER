@@ -1,4 +1,3 @@
----
 
 <div align="center">
   <h1>🔐 Password Strength Checker</h1>
@@ -6,9 +5,9 @@
     <strong>A lightweight Python CLI tool to evaluate password strength with actionable feedback.</strong>
   </p>
   <p>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white" alt="Python" />
     <img src="https://img.shields.io/badge/CLI-Tool-black?style=for-the-badge" alt="CLI Tool" />
-    <img src="https://img.shields.io/badge/No%20Dependencies-✔️-brightgreen?style=for-the-badge" alt="No Dependencies" />
+    <img src="https://img.shields.io/badge/No%20Dependencies-brightgreen?style=for-the-badge" alt="No Dependencies" />
     <img src="https://img.shields.io/badge/Security-Focused-red?style=for-the-badge" alt="Security Focused" />
   </p>
 </div>
@@ -17,22 +16,20 @@
 
 ## 🌟 Overview
 
-**Password Strength Checker** is a simple yet effective command-line tool built in Python to **analyze password strength** and provide **clear, actionable suggestions** for improvement.
+**Password Strength Checker** is a simple yet powerful command-line tool built in Python to analyze password strength and provide clear, actionable suggestions.
 
-Designed with a focus on **security, privacy, and usability**, it runs entirely locally—ensuring that your passwords are never exposed or transmitted over the internet.
-
-Whether you're a developer enforcing password policies or a user checking password safety, this tool provides quick and meaningful insights.
+It runs completely **offline**, ensuring your passwords are never exposed or sent over the internet.
 
 ---
 
 ## 🚀 Key Features
 
-* 🔒 **Secure Input** – Hidden password entry using CLI (no screen echo)
-* 📊 **Strength Scoring** – Numeric score from **0–100**
-* 🏷️ **Readable Labels** – Weak / Medium / Strong / Very Strong
-* 💡 **Actionable Feedback** – Suggestions to improve password quality
-* ⚙️ **Script-Friendly** – Supports `--min-score` for automation & CI
-* 🚫 **No External Dependencies** – Fully offline and lightweight
+- 🔒 **Secure Input** – Hidden password entry (no echo)
+- 📊 **Strength Score** – Numeric score (0–100)
+- 🏷️ **Labels** – Weak / Medium / Strong / Very Strong
+- 💡 **Actionable Feedback** – Suggestions to improve passwords
+- ⚙️ **CLI Friendly** – Supports `--min-score` for automation
+- 🚫 **No Dependencies** – Lightweight and fast
 
 ---
 
@@ -43,11 +40,9 @@ PASSWORD-CHECKER/
 ├── main.py                # CLI entry point
 ├── password/
 │   ├── __init__.py       # Package exports
-│   ├── cli.py            # CLI handling & output
-│   └── scorer.py         # Core password scoring logic
-└── README.md             # Documentation
-```
-
+│   ├── cli.py            # CLI handling
+│   └── scorer.py         # Strength logic
+└── README.md
 ---
 
 ## ⚙️ Requirements
